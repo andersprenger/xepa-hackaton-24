@@ -1,24 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { Alert, AlertTitle } from '@mui/material';
 
-const Alerts = ({currentRegion}) => {
-    const [alert, setAlert] = useState({
-        id: '',
-        titulo: '',
-        mensagem: '',
-        zona: '',
-        data_hora: '',
-        rota: '',
-    });
+const Alerts = ({ currentRegion, alert, setAlert }) => {
 
     useEffect(() => {
         // Simulating a fetch request to get the list of error messages
         const fetchAlerts = async () => {
             try {
-                console.log(`http://localhost:3002/alerts/${currentRegion}`);
-                const response = await fetch(`http://localhost:3002/alerts/${currentRegion}`);
-                
-                
+                const response = await fetch(`http://localhost:3001/alerts/${currentRegion}`);
                 const dataAux = await response.json();
                 const data = dataAux[0];
                 setAlert({
