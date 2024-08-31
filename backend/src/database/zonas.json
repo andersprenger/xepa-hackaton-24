@@ -1,0 +1,22 @@
+{
+    "zona-sul": {
+        "habitantes": 600,
+        "abrigados": 1
+    },
+    "zona-norte": {
+        "habitantes": 600,
+        "abrigados": 1
+    },
+    "centro": {
+        "habitantes": 600,
+        "abrigados": 1
+    },
+    "zona-leste": {
+        "habitantes": 600,
+        "abrigados": 1
+    },
+    "regiao-das-ilhas": {
+        "habitantes": 600,
+        "abrigados": 1
+    }
+}
