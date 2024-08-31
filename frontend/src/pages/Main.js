@@ -24,7 +24,7 @@ const CheckinButton = styled(Button)({
     color: '#1a7235',
 });
 
-const Main = () => {
+const Main = ({currentRegion, setIsMain}) => {
     return (
         <div style={{
             display: 'flex',
@@ -35,13 +35,13 @@ const Main = () => {
             gap: '20px',
             width: '100%',
         }}>
-            <NotificationButton onClick={() => console.log('Fazer Denuncia')}>
+            <NotificationButton onClick={() => setIsMain(false)}>
                 Notificar Emergência
             </NotificationButton>
             <div style={{ width: '100%', height: '5px', backgroundColor: '#1a7235' }} />
             <div style={{ width: '90%' }} >
                 <Typography fontSize={24} color='#1a7235' sx={{ fontWeight: 700, textAlign: 'start' }}>Últimos alertas da sua região</Typography>
-                <Alerts />
+                <Alerts currentRegion={currentRegion}/>
             </div>
             <div style={{ width: '100%', height: '5px', backgroundColor: '#1a7235' }} />
             <div style={{ width: '90%' }}>

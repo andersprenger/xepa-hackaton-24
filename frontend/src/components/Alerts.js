@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Alert, AlertTitle } from '@mui/material';
 
-const Alerts = () => {
+const Alerts = ({currentRegion}) => {
     const [alert, setAlert] = useState({
-        id: 0,
+        id: '',
         titulo: '',
         mensagem: '',
         zona: '',
@@ -15,25 +15,35 @@ const Alerts = () => {
         // Simulating a fetch request to get the list of error messages
         const fetchAlerts = async () => {
             try {
-                const response = await fetch('http://localhost:3001/alerts/');
-                const data = await response.json();
-                setAlert(data);
-
+                console.log(`http://localhost:3002/alerts/${currentRegion}`);
+                const response = await fetch(`http://localhost:3002/alerts/${currentRegion}`);
+                
+                
+                const dataAux = await response.json();
+                const data = dataAux[0];
+                setAlert({
+                    id: data.id,
+                    titulo: data.titulo,
+                    mensagem: data.mensagem,
+                    zona: data.zona,
+                    data_hora: data.data_hora,
+                    rota: data.rota,
+                });
             } catch (error) {
                 console.error('Error fetching error list:', error);
                 setAlert({
-                    id: 0,
-                    titulo: 'TITLE NOT FOUND',
-                    mensagem: 'MESSAGE NOT FOUND',
+                    id: '',
+                    titulo: '',
+                    mensagem: '',
                     zona: '',
-                    data_hora: 'oito e sete',
-                    rota: 'https://www.google.com/maps/embed/v1/directions?origin=place_id:ChIJHctqVtKcGZURH-mHn6gRMWA&destination=place_id:ChIJcVUeAqh6GZURhvUYdQ9G3tA&key=AIzaSyCVCn-6ZTRqbwJgb7lBNsAMVBhjOdKyyYQ',
+                    data_hora: '',
+                    rota: '',
                 });
             }
         };
 
         fetchAlerts();
-    }, []);
+    }, [currentRegion]);
 
     return (
         alert.mensagem !== '' ? (
@@ -44,11 +54,11 @@ const Alerts = () => {
                 gap: '10px',
                 width: '100%'
             }}>
-                <Alert severity="error" sx={{width: '92%', textAlign: 'start'}}>
+                <Alert severity="error" sx={{ width: '92%', textAlign: 'start' }}>
                     <AlertTitle>{`${alert.titulo} - ${alert.data_hora}`}</AlertTitle>
                     {alert.mensagem}
                 </Alert>
-                <iframe width="100%" style={{ border: 0, aspectRatio: '4/3' }} loading="lazy" allowfullscreen src={alert.rota}></iframe>
+                <iframe title='rota' width="100%" style={{ border: 0, aspectRatio: '4/3' }} loading="lazy" allowfullscreen src={alert.rota}></iframe>
             </div>
         ) : (
             <Alert severity='success'>
