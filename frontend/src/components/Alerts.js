@@ -1,45 +1,60 @@
 import React, { useState, useEffect } from 'react';
-import { Alert, Stack } from '@mui/material';
+import { Alert, AlertTitle } from '@mui/material';
 
 const Alerts = () => {
-    const [errorList, setErrorList] = useState([]);
+    const [alert, setAlert] = useState({
+        id: 0,
+        titulo: '',
+        mensagem: '',
+        zona: '',
+        data_hora: '',
+        rota: '',
+    });
 
     useEffect(() => {
         // Simulating a fetch request to get the list of error messages
-        const fetchErrorList = async () => {
+        const fetchAlerts = async () => {
             try {
-                // const response = await fetch('your-api-endpoint');
-                //mock response
-                const response = {
-                    json: async () => {
-                        return {
-                            alerts: [
-                                { message: 'ATENÇÃO: Possivel perigo perto da região da Restinga. Retirem-se do local imediatamente!' },
-                                { message: 'PROBLEMA 2' },
-                                { message: 'PROBLEMÃO' },
-                            ],
-                        };
-                    },
-                };
+                const response = await fetch('http://localhost:3001/alerts/');
                 const data = await response.json();
-                setErrorList(data.alerts);
+                setAlert(data);
+
             } catch (error) {
                 console.error('Error fetching error list:', error);
+                setAlert({
+                    id: 0,
+                    titulo: 'TITLE NOT FOUND',
+                    mensagem: 'MESSAGE NOT FOUND',
+                    zona: '',
+                    data_hora: 'oito e sete',
+                    rota: 'https://www.google.com/maps/embed/v1/directions?origin=place_id:ChIJHctqVtKcGZURH-mHn6gRMWA&destination=place_id:ChIJcVUeAqh6GZURhvUYdQ9G3tA&key=AIzaSyCVCn-6ZTRqbwJgb7lBNsAMVBhjOdKyyYQ',
+                });
             }
         };
 
-        fetchErrorList();
+        fetchAlerts();
     }, []);
 
     return (
-        errorList.length > 0 && (
-            <Stack spacing={1} sx={{ width: '80%', marginTop: '10px' }}>
-                {errorList.map((error, index) => (
-                    <Alert key={index} severity="error">
-                        {error.message}
-                    </Alert>
-                ))}
-            </Stack>
+        alert.mensagem !== '' ? (
+            <div style={{
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                gap: '10px',
+                width: '100%'
+            }}>
+                <Alert severity="error" sx={{width: '92%', textAlign: 'start'}}>
+                    <AlertTitle>{`${alert.titulo} - ${alert.data_hora}`}</AlertTitle>
+                    {alert.mensagem}
+                </Alert>
+                <iframe width="100%" style={{ border: 0, aspectRatio: '4/3' }} loading="lazy" allowfullscreen src={alert.rota}></iframe>
+            </div>
+        ) : (
+            <Alert severity='success'>
+                <AlertTitle>Nenhum alerta encontrado!</AlertTitle>
+                Sua região não corre perigo.
+            </Alert>
         )
     );
 };
