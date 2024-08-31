@@ -3,34 +3,40 @@
     "titulo":"Terremoto",
     "mensagem":"Terremoto em andamento: busque abrigo imediatamente!",
     "zona":"centro",
-    "data_hora":"2024-08-12 15:33:08"
+    "data_hora":"2024-08-12 15:33:08",
+    "rota": "https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d27636.87396132671!2d-51.23623335775368!3d-30.01937458702472!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e9!4m5!1s0x9519790e4d043eab%3A0x769a0820bae18fd4!2sCentro%20Hist%C3%B3rico%2C%20Porto%20Alegre%20-%20RS!3m2!1d-30.0308043!2d-51.2278242!4m5!1s0x951979f311d54403%3A0x5bdcd5e9f232165c!2sNavegantes%2C%20Porto%20Alegre%20-%20RS!3m2!1d-30.0000799!2d-51.1986589!5e0!3m2!1spt-BR!2sbr!4v1725126482143!5m2!1spt-BR!2sbr"
     },
     {
     "id":"2",
     "titulo":"Alerta! Incêndio industrial.",
     "mensagem":"Incêndio no Polo Petroquimico de Triunfo. Ordem de evacuação para toda a zona sul de Porto Alegre!",
     "zona":"zona-sul",
-    "data_hora":"2024-08-12 15:32:08"
+    "data_hora":"2024-08-12 15:32:08",
+    "rota": "https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d55232.78872800071!2d-51.24041445032938!3d-30.092774510631187!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e6!4m5!1s0x951983a57b3f53c7%3A0x120902d771cc1e4!2sZona%20sul%20de%20Porto%20Alegre%20RS%20-%20Vila%20Nova%2C%20Porto%20Alegre%20-%20RS%2C%2091751-314!3m2!1d-30.1291546!2d-51.214108499999995!4m5!1s0x951977fea1504897%3A0x1e20a65cc662a5c2!2sPUCRS%20-%20Avenida%20Ipiranga%20-%20Partenon%2C%20Porto%20Alegre%20-%20RS!3m2!1d-30.0592974!2d-51.172996499999996!5e0!3m2!1spt-BR!2sbr!4v1725125742567!5m2!1spt-BR!2sbr"
+
     },
     {
     "id":"3",
     "titulo":"Alerta! Rompimento de barragem!.",
     "mensagem":"Rompimento do dique do Sarandi! Ordem de evacuação para todas zonas de risco da zona norte de Porto Alegre!",
     "zona":"zona-norte",
-    "data_hora":"2024-08-12 15:32:08"
+    "data_hora":"2024-08-12 15:32:08",
+    "rota": "https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d27617.93344404998!2d-51.20696280759932!3d-30.087264010304494!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e9!4m5!1s0x95199d58faed7323%3A0x6d42dc4621181179!2sConfraria%20Do%20Xis%20Zona%20Leste%2C%20R.%20Bar%C3%A3o%20do%20Amazonas%2C%201847%20-%20Partenon%2C%20Porto%20Alegre%20-%20RS%2C%2090660-001!3m2!1d-30.0594461!2d-51.1919463!4m5!1s0x95199cb8da707433%3A0x35338d66be5b6b38!2sBel%C3%A9m%20Velho%2C%20Porto%20Alegre%20-%20RS!3m2!1d-30.1151423!2d-51.1770579!5e0!3m2!1spt-BR!2sbr!4v1725126068080!5m2!1spt-BR!2sbr"
     },
     {
     "id":"4",
     "titulo":"Alerta! Desastre químico.",
     "mensagem":"Derramamento de material tóxico na Av. Ipiranga. Ordem de evacuação das proximidades! Evitar deslocamento na Av. Ipiranga e na Perimetral!",
     "zona":"zona-leste",
-    "data_hora":"2024-08-12 15:32:08"
+    "data_hora":"2024-08-12 15:32:08",
+    "rota": "https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d13809.501467536014!2d-51.11981313069652!3d-30.083434281128252!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e6!4m5!1s0x95199db7a2b2015b%3A0x76fca6c6995a44c2!2sUFRGS%20-%20Instituto%20de%20Letras%20-%20Avenida%20Bento%20Gon%C3%A7alves%2C%209500%20-%20Agronomia%2C%20RS%2C%2091540-000!3m2!1d-30.072423699999998!2d-51.1186562!4m5!1s0x95199d06a1b66de7%3A0xe77e2670a3ba6d70!2sParque%20Saint%20Hilaire%20-%20Passo%20do%20Sab%C3%A3o%2C%20Viam%C3%A3o%20-%20RS!3m2!1d-30.095012399999998!2d-51.103243299999995!5e0!3m2!1spt-BR!2sbr!4v1725126753275!5m2!1spt-BR!2sbr"
     },
     {
     "id":"5",
-    "titulo":"Alerta! Incêndio industrial.",
-    "mensagem":"Incêndio no Polo Petroquimico de Triunfo. Ordem de evacuação para toda a zona sul de Porto Alegre!",
-    "zona":"zona-sul",
-    "data_hora":"2024-08-12 15:32:08"
+    "titulo":"Alerta! Enchente iminente.",
+    "mensagem":"Enchente iminente na região dos Arquipélagos! Ordem de evacuação dos moradores para pontos de encontro seguros fora da zona de risco!",
+    "zona":"zona-ilhas",
+    "data_hora":"2024-08-12 15:32:08",
+    "rota": "https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d27640.090298215644!2d-51.26037795777991!3d-30.007832283072858!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e6!4m5!1s0x95197eca9751d393%3A0xd613f329e2408798!2sIlha%20da%20Pintada%2C%20Rio%20Grande%20do%20Sul!3m2!1d-30.0301585!2d-51.2605632!4m5!1s0x951979f311d54403%3A0x5bdcd5e9f232165c!2sNavegantes%2C%20Porto%20Alegre%20-%20RS!3m2!1d-30.0000799!2d-51.1986589!5e0!3m2!1spt-BR!2sbr!4v1725126912831!5m2!1spt-BR!2sbr"
     }
 ]
