@@ -10,7 +10,7 @@ import DialogTitle from '@mui/material/DialogTitle';
 import { DialogContent } from '@mui/material';
 
 
-const Denuncia = () => {
+const Denuncia = ({ setIsMain }) => {
     const [group, setGroup] = React.useState('');
     const [subGroup, setSubGroup] = React.useState('');
     const [regiao, setRegiao] = React.useState('');
@@ -37,8 +37,7 @@ const Denuncia = () => {
         setRegiao(event.target.value);
         
     };
-    const submitForm  = () => {
-        console.log("Values", subGroup, regiao);
+    const submitForm = () => {
         fetch("http://localhost:3001/denuncias", {
             method: "POST",
             headers: {
@@ -49,8 +48,13 @@ const Denuncia = () => {
                 zone: regiao,
             })
         })
+
         setDlog(true);
-    } 
+
+
+        setIsMain(true);
+    }
+
     const subGroups = {
         naturais: [
             { value: 'terremoto', label: 'Terremoto' },
@@ -87,7 +91,7 @@ const Denuncia = () => {
         <div style={{ width: '90%', maxWidth: '500px', padding: '0px 0px' }}>
             <div style={{ textAlign: 'left', paddingLeft: '0px', paddingBottom: '0px', paddingTop: '16px' }}>
                 <h2 style={{ color: '#1a7235', textAlign: 'left', margin: '0', padding: '0' }}>Notificar Emergência</h2>
-                <Button sx={{ color: '#1a7235', textAlign: 'left', padding: '0px', margin: '0', padding: '0' }} startIcon={<ArrowBackIcon />}>Voltar</Button>
+                <Button onClick={()=>setIsMain(true)} sx={{ color: '#1a7235', textAlign: 'left', padding: '0px', margin: '0', padding: '0' }} startIcon={<ArrowBackIcon />}>Voltar</Button>
             </div>
 
             <h3 style={{ color: '#1a7235', textAlign: 'left' }}>Grupo de desastre</h3>
@@ -113,7 +117,7 @@ const Denuncia = () => {
                     id="subgroup-select"
                     value={subGroup}
                     label="Tipo"
-                    onChange={ handleSubGroupChange }
+                    onChange={handleSubGroupChange}
                     disabled={!group}
                 >
                     {subGroups[group]?.map((sub) => (
@@ -132,7 +136,7 @@ const Denuncia = () => {
                     id="regiao-select"
                     value={regiao}
                     label="Região"
-                    onChange={ handleRegiaoChange }
+                    onChange={handleRegiaoChange}
                 >
                     {regioes.map((regiao, index) => (
                         <MenuItem key={index} value={regiao}>
@@ -143,6 +147,7 @@ const Denuncia = () => {
             </FormControl>
 
             <div style={{ display: 'flex', justifyContent: 'space-evenly', margin: '16px 0px' }}>
+
 
                     <Button 
                     variant="contained" 
@@ -163,6 +168,7 @@ const Denuncia = () => {
                     </DialogContent>
 
                 </Dialog>
+
             </div>
         </div>
     );

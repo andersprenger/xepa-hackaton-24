@@ -33,6 +33,7 @@ function App() {
     },
   ];
   const [currentRegion, setCurrentRegion] = useState('centro');
+  const [isMain, setIsMain] = useState(true);
   return (
     <div className="App">
       <header className="App-header">
@@ -56,7 +57,15 @@ function App() {
         </div>
       </header>
       <div className="App-content">
+
         <Main currentRegion={ currentRegion }/>
+
+        {isMain ?
+          <Main currentRegion={currentRegion} setIsMain={setIsMain}/>
+          :
+          <Denuncia setIsMain={setIsMain}/>
+        }
+
       </div>
     </div>
   );
