@@ -56,7 +56,7 @@ function App() {
         </div>
       </header>
       <div className="App-content">
-        <Denuncia />
+        <Main currentRegion={ currentRegion }/>
       </div>
     </div>
   );

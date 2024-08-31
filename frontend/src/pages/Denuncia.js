@@ -1,27 +1,41 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
 import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
 import Button from '@mui/material/Button';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import Dialog from '@mui/material/Dialog';
+import DialogTitle from '@mui/material/DialogTitle';
+import { DialogContent } from '@mui/material';
+
 
 const Denuncia = () => {
     const [group, setGroup] = React.useState('');
     const [subGroup, setSubGroup] = React.useState('');
     const [regiao, setRegiao] = React.useState('');
+    const [isDisable, setDisable] = React.useState(true);
+    const [dlog, setDlog] = React.useState(false);
 
-    
+    useEffect(() => {
+        if(group != "" && subGroup != "" && regiao != "") {
+            setDisable(false);
+        }
+    },[group, subGroup, regiao])
+
     const handleGroupChange = (event) => {
         setGroup(event.target.value);
+        
     };
 
     const handleSubGroupChange = (event) => {
         setSubGroup(event.target.value);
+        
     };
 
     const handleRegiaoChange = (event) => {
         setRegiao(event.target.value);
+        
     };
     const submitForm  = () => {
         console.log("Values", subGroup, regiao);
@@ -35,6 +49,7 @@ const Denuncia = () => {
                 zone: regiao,
             })
         })
+        setDlog(true);
     } 
     const subGroups = {
         naturais: [
@@ -128,10 +143,26 @@ const Denuncia = () => {
             </FormControl>
 
             <div style={{ display: 'flex', justifyContent: 'space-evenly', margin: '16px 0px' }}>
-                <Button 
-                variant="contained" 
-                onClick={submitForm}
-                sx={{ width: '120px', backgroundColor: '#1a7235' }}>Enviar</Button>
+
+                    <Button 
+                    variant="contained" 
+                    disabled={isDisable}
+                    onClick={submitForm}
+                    sx={{ width: '120px', backgroundColor: '#1a7235' }}>
+                        Enviar
+                    </Button>
+                <Dialog
+                    open={dlog}>
+                    <DialogTitle
+                        
+                    >
+                        Agradecemos a sua informação
+                    </DialogTitle>
+                    <DialogContent>
+                        Busque os recursos de ajuda mais proximos de você
+                    </DialogContent>
+
+                </Dialog>
             </div>
         </div>
     );
