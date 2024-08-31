@@ -45,7 +45,6 @@ const Denuncia = () => {
 
             <div style={{ display: 'flex', justifyContent: 'space-evenly', margin: '16px 0px' }}>
                 <Button variant="contained" sx={{width: '120px', backgroundColor: '#1a7235'}}>Enviar</Button>
-                <Button variant="contained" sx={{width: '120px', backgroundColor: '#1a7235'}}>Cancelar</Button>
             </div>
         </div>
     );
