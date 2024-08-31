@@ -10,6 +10,7 @@ async function getMessage(id) {
 
     
     return result;
+
   } catch (error) {
     console.log("Error in getMessage", error);
     throw error;
