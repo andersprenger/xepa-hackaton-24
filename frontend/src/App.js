@@ -12,7 +12,7 @@ function App() {
         <AccountCircleIcon sx={{ color: '#1a7235', marginRight: '10px' }} fontSize='large' />
       </header>
       <div className="App-content">
-        <Main />
+        <RouteList />
       </div>
     </div>
   );
