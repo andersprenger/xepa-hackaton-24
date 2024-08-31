@@ -1,1 +1,1 @@
-# chepa-hackaton-24
+# xepa-hackaton-24
