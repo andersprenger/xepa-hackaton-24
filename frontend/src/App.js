@@ -2,7 +2,7 @@ import logorsgov from './resources/logorsgov.svg';
 import './App.css';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import Main from './pages/Main';
-import RouteList from './pages/RouteList';
+import Denuncia from './pages/Denuncia';
 
 function App() {
   return (
@@ -12,7 +12,7 @@ function App() {
         <AccountCircleIcon sx={{ color: '#1a7235', marginRight: '10px' }} fontSize='large' />
       </header>
       <div className="App-content">
-        <Main />
+        <Denuncia />
       </div>
     </div>
   );
