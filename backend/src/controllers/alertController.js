@@ -1,11 +1,11 @@
 const { Request, Response } = require("express");
-// db connection
+const alertService = require("../services/messageService");
 
 
 // a mensagem recebe o get do banco e é envia para o frontend
 const messageAlert = async (req, res) => {
   try {
-    const { id } = req.parms;
+    const { id } = req.params;
     const message = await alertService.getMessage(id);
 
     if (!message) {
