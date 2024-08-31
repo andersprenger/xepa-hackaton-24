@@ -14,9 +14,9 @@ const Alerts = () => {
                     json: async () => {
                         return {
                             alerts: [
-                                { message: 'ATENÇÃO: Possivel perigo perto da região da Restinga. Retirem-se do local imediatamente!' },
-                                { message: 'PROBLEMA 2' },
-                                { message: 'PROBLEMÃO' },
+                                { title: 'ATENÇÃO', message: 'Possivel perigo perto da região da Restinga. Retirem-se do local imediatamente!' },
+                                { title: 'CUIDADO', message: 'PROBLEMA 2' },
+                                { title: 'PROBLEMA', message: 'PROBLEMÃO' },
                             ],
                         };
                     },
@@ -36,6 +36,7 @@ const Alerts = () => {
             <Stack spacing={1} sx={{ width: '80%', marginTop: '10px' }}>
                 {errorList.map((error, index) => (
                     <Alert key={index} severity="error">
+                        <AlertTitle>{error.title}</AlertTitle>
                         {error.message}
                     </Alert>
                 ))}
