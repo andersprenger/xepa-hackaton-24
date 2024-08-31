@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15  # Ou qualquer outra versão desejada
+    container_name: my_postgres
+    environment:
+      POSTGRES_DB: xepa_database        # Nome do banco de dados padrão
+      POSTGRES_USER: xepa          # Nome de usuário do banco de dados
+      POSTGRES_PASSWORD: 123456 # Senha do banco de dados
+    ports:
+      - "5432:5432"  # Mapeia a porta padrão do PostgreSQL para a máquina host
+    volumes:
+      - postgres_data:/var/lib/postgresql/data  # Volume para persistência de dados
+
+volumes:
+  postgres_data:
