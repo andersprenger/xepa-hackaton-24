@@ -12,10 +12,7 @@ const messageAlert = async (req, res) => {
       return res.status(404).json({ message: "Message not found" });
     }
 
-    res.json({
-      content: message.content,
-      date: message.createdAt,
-    });
+    res.status(200).json(message);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
