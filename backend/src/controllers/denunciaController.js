@@ -11,7 +11,7 @@ const postDenunciaController = (req, res) => {
         description,
         local,
         title
-    })
+    });
     return res.status(201).send();
 }
 
