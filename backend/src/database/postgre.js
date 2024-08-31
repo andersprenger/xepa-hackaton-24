@@ -5,12 +5,8 @@ const client = new Client({
     host: "localhost",
     password: "123456",
     port: 5432,
-})
-/*
-POSTGRES_DB: xepa_database        # Nome do banco de dados padrão
-      POSTGRES_USER: xepa          # Nome de usuário do banco de dados
-      POSTGRES_PASSWORD: 123456 
-*/
+});
+
 const connectDatabase = async () => {
     await client.connect()
  
@@ -25,4 +21,4 @@ const connectDatabase = async () => {
 
 }
 
-module.exports = connectDatabase;
+module.exports = { connectDatabase };
