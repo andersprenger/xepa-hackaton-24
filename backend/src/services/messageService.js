@@ -1,19 +1,12 @@
-//db connetion
-const db = require("../database/postgre.js");
-// logica para a mensagem, pegar pelo id e mandar para o alertController a mensagem e a data
+const fs = require("fs");
+const path = require("path");
 
 async function getMessage(id) {
   try {
-    const result = await db.query("SELECT * FROM messages WHERE id = $1", [id]);
-
-    if (result.rows.length === 0) {
-      return null;
-    }
-    const message = result.rows[0];
-    return {
-      content: message.content,
-      createdAt: message.created_at,
-    };
+    const result = JSON.parse(
+      fs.readFileSync(path.resolve("src", "database", "alertas.json"), "utf-8")
+    );
+    console.log(result);
   } catch (error) {
     console.log("Error in getMessage", error);
     throw error;
