@@ -1,4 +1,3 @@
-const { Request, Response } = require("express");
 const alertService = require("../services/messageService");
 
 
@@ -7,15 +6,13 @@ const messageAlert = async (req, res) => {
   try {
     const { id } = req.params;
     const message = await alertService.getMessage(id);
+    console.log(message)
 
     if (!message) {
       return res.status(404).json({ message: "Message not found" });
     }
 
-    res.json({
-      content: message.content,
-      date: message.createdAt,
-    });
+    res.status(200).json(message);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
