@@ -1,4 +1,3 @@
-const { Request, Response } = require("express");
 const alertService = require("../services/messageService");
 
 
@@ -7,6 +6,7 @@ const messageAlert = async (req, res) => {
   try {
     const { id } = req.params;
     const message = await alertService.getMessage(id);
+    console.log(message)
 
     if (!message) {
       return res.status(404).json({ message: "Message not found" });
