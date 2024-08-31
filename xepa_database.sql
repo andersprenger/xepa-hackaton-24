@@ -15,6 +15,6 @@ CREATE DATABASE denuncias (
 
 CREATE DATABASE rotas (
     id VARCHAR(255) NOT NULL,
-    trajeto VARCHAR(255),
+    trajeto VARCHAR(500),
     endereco VARCHAR(255)
 );
