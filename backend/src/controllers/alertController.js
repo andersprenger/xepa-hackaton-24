@@ -17,4 +17,22 @@ const messageAlert = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
-module.exports = { messageAlert };
+const postAlert = (req, res) => {
+  const {
+    id,
+    titulo,
+    mensagem,
+    endereco,
+    data_hora,
+  } = req.body;
+  alertService.postAlert({
+    id,
+    titulo,
+    mensagem,
+    endereco,
+    data_hora
+  });
+  res.status(201).send();
+
+}
+module.exports = { messageAlert, postAlert };
