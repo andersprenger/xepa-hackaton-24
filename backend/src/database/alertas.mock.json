@@ -1,0 +1,36 @@
+[{
+    "id":"1",
+    "titulo":"Terremoto",
+    "mensagem":"Terremoto em andamento: busque abrigo imediatamente!",
+    "zona":"centro",
+    "data_hora":"2024-08-12 15:33:08"
+    },
+    {
+    "id":"2",
+    "titulo":"Alerta! Incêndio industrial.",
+    "mensagem":"Incêndio no Polo Petroquimico de Triunfo. Ordem de evacuação para toda a zona sul de Porto Alegre!",
+    "zona":"zona-sul",
+    "data_hora":"2024-08-12 15:32:08"
+    },
+    {
+    "id":"3",
+    "titulo":"Alerta! Rompimento de barragem!.",
+    "mensagem":"Rompimento do dique do Sarandi! Ordem de evacuação para todas zonas de risco da zona norte de Porto Alegre!",
+    "zona":"zona-norte",
+    "data_hora":"2024-08-12 15:32:08"
+    },
+    {
+    "id":"4",
+    "titulo":"Alerta! Desastre químico.",
+    "mensagem":"Derramamento de material tóxico na Av. Ipiranga. Ordem de evacuação das proximidades! Evitar deslocamento na Av. Ipiranga e na Perimetral!",
+    "zona":"zona-leste",
+    "data_hora":"2024-08-12 15:32:08"
+    },
+    {
+    "id":"5",
+    "titulo":"Alerta! Incêndio industrial.",
+    "mensagem":"Incêndio no Polo Petroquimico de Triunfo. Ordem de evacuação para toda a zona sul de Porto Alegre!",
+    "zona":"zona-sul",
+    "data_hora":"2024-08-12 15:32:08"
+    }
+]

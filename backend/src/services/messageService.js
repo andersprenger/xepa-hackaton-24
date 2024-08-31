@@ -2,13 +2,13 @@ const fs = require('fs')
 const path = require("path")
 // logica para a mensagem, pegar pelo id e mandar para o alertController a mensagem e a data
 
-async function getMessage(id) {
+async function getMessage(zona) {
   try {
 
-    const result = JSON.parse(fs.readFileSync(path.resolve("src", "database", "alertas.json"), 'utf8'));
-    console.log(result)
-
+    const alerts = JSON.parse(fs.readFileSync(path.resolve("src", "database", "alertas.json"), 'utf8'));
     
+
+    const result = alerts.filter(al => al.zona == zona);
     return result;
 
   } catch (error) {

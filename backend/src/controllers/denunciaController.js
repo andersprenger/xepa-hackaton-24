@@ -6,7 +6,6 @@ const getDenuncias = (req, res) => {
 }
 const postDenunciaController = (req, res) => {
     const { description, local, title } = req.body;
-    console.log( description, local, title);
     postDenuncia({
         description,
         local,
