@@ -59,7 +59,7 @@ const Denuncia = () => {
     return (
         <div style={{ width: '90%', maxWidth: '500px', padding: '0px 0px' }}>
             <div style={{ textAlign: 'left', paddingLeft: '0px', paddingBottom: '0px', paddingTop: '16px' }}>
-                <h2 style={{ color: '#1a7235', textAlign: 'left', margin: '0', padding: '0' }}>Fazer Denúncia</h2>
+                <h2 style={{ color: '#1a7235', textAlign: 'left', margin: '0', padding: '0' }}>Notificar Emergência</h2>
                 <Button sx={{ color: '#1a7235', textAlign: 'left', padding: '0px', margin: '0', padding: '0' }} startIcon={<ArrowBackIcon />}>Voltar</Button>
             </div>
 
