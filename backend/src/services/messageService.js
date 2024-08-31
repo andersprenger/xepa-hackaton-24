@@ -16,5 +16,16 @@ async function getMessage(id) {
     throw error;
   }
 }
-
-module.exports = { getMessage };
+const postAlert = (alert) => {
+  try {
+      const lastFile = JSON.parse(fs.readFileSync(path.resolve("src", "database", "alertas.json"), 'utf8'));
+      lastFile.push(alert)
+      fs.writeFile(path.resolve("src", "database", "alertas.json"), JSON.stringify(lastFile), (e) => {
+          console.log("error ", e)
+      })
+      return true
+  }catch(e) {
+      console.log(e.message);
+  }
+}
+module.exports = { getMessage, postAlert };

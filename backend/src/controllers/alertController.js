@@ -12,12 +12,27 @@ const messageAlert = async (req, res) => {
       return res.status(404).json({ message: "Message not found" });
     }
 
-    res.json({
-      content: message.content,
-      date: message.createdAt,
-    });
+    res.status(200).json(message);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
 };
-module.exports = { messageAlert };
+const postAlert = (req, res) => {
+  const {
+    id,
+    titulo,
+    mensagem,
+    endereco,
+    data_hora,
+  } = req.body;
+  alertService.postAlert({
+    id,
+    titulo,
+    mensagem,
+    endereco,
+    data_hora
+  });
+  res.status(201).send();
+
+}
+module.exports = { messageAlert, postAlert };
