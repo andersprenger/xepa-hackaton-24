@@ -57,11 +57,15 @@ function App() {
         </div>
       </header>
       <div className="App-content">
+
+        <Main currentRegion={ currentRegion }/>
+
         {isMain ?
           <Main currentRegion={currentRegion} setIsMain={setIsMain}/>
           :
           <Denuncia setIsMain={setIsMain}/>
         }
+
       </div>
     </div>
   );

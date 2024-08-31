@@ -16,6 +16,19 @@ async function getMessage(zona) {
     throw error;
   }
 }
+async function getAllMessages() {
+  try {
+
+    const alerts = JSON.parse(fs.readFileSync(path.resolve("src", "database", "alertas.json"), 'utf8'));
+    
+
+    return alerts;
+
+  } catch (error) {
+    console.log("Error in getMessage", error);
+    throw error;
+  }
+}
 const postAlert = (alert) => {
   try {
       const lastFile = JSON.parse(fs.readFileSync(path.resolve("src", "database", "alertas.json"), 'utf8'));
@@ -28,4 +41,4 @@ const postAlert = (alert) => {
       console.log(e.message);
   }
 }
-module.exports = { getMessage, postAlert };
+module.exports = { getMessage, postAlert, getAllMessages };

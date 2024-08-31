@@ -24,7 +24,20 @@ const CheckinButton = styled(Button)({
     color: '#1a7235',
 });
 
+
+
+
+
 const Main = ({currentRegion, setIsMain}) => {
+  const Main = ({currentRegion}) => {
+    const [isDisabled, setDisabled] = React.useState(false);
+    const checkinHandle = () => {
+     setDisabled(true);
+     fetch(`http://localhost:3001/checkin/${currentRegion}`, {
+        method: "POST"
+     })
+
+    }
     return (
         <div style={{
             display: 'flex',
@@ -46,8 +59,11 @@ const Main = ({currentRegion, setIsMain}) => {
             <div style={{ width: '100%', height: '5px', backgroundColor: '#1a7235' }} />
             <div style={{ width: '90%' }}>
                 <Typography fontSize={24} color='#1a7235' sx={{ fontWeight: 700, textAlign: 'start' }}>Chegou no ponto de encontro?</Typography>
-                <CheckinButton onClick={() => console.log('Acesse Rotas de Fuga')}>
-                    Faça aqui o Check-in!
+               
+                <CheckinButton 
+                disabled={ isDisabled }
+                onClick={checkinHandle}>
+                    "Faça aqui o Check-in!"
                 </CheckinButton>
             </div>
         </div>
