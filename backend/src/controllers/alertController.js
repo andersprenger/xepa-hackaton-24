@@ -25,13 +25,15 @@ const postAlert = (req, res) => {
     mensagem,
     zona,
     data_hora,
+    rota
   } = req.body;
   alertService.postAlert({
     id,
     titulo,
     mensagem,
     zona,
-    data_hora
+    data_hora,
+    rota
   });
   res.status(201).send();
 
