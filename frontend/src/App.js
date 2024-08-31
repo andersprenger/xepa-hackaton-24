@@ -2,7 +2,11 @@ import React, { useState } from 'react';
 import logorsgov from './resources/logorsgov.svg';
 import './App.css';
 import Main from './pages/Main';
+
+import Denuncia from './pages/Denuncia';
+
 import { MenuItem, Select } from '@mui/material';
+
 
 function App() {
   const regions = [
@@ -52,7 +56,7 @@ function App() {
         </div>
       </header>
       <div className="App-content">
-        <Main />
+        <Denuncia />
       </div>
     </div>
   );

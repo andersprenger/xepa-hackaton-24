@@ -5,8 +5,6 @@ const postDenuncia = (denuncia) => {
     try {
         const lastFile = JSON.parse(fs.readFileSync(path.resolve("src", "database", "denuncias.json"), 'utf8'));
         lastFile.push(denuncia)
-        console.log("lastfile ", lastFile);
-        console.log("denuncia ", denuncia)
         fs.writeFile(path.resolve("src", "database", "denuncias.json"), JSON.stringify(lastFile), (e) => {
             console.log("error ", e)
         })

@@ -11,9 +11,9 @@ const Denuncia = () => {
     const [subGroup, setSubGroup] = React.useState('');
     const [regiao, setRegiao] = React.useState('');
 
+    
     const handleGroupChange = (event) => {
         setGroup(event.target.value);
-        setSubGroup('');
     };
 
     const handleSubGroupChange = (event) => {
@@ -23,7 +23,19 @@ const Denuncia = () => {
     const handleRegiaoChange = (event) => {
         setRegiao(event.target.value);
     };
-
+    const submitForm  = () => {
+        console.log("Values", subGroup, regiao);
+        fetch("http://localhost:3001/denuncias", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                group: subGroup,
+                zone: regiao,
+            })
+        })
+    } 
     const subGroups = {
         naturais: [
             { value: 'terremoto', label: 'Terremoto' },
@@ -86,7 +98,7 @@ const Denuncia = () => {
                     id="subgroup-select"
                     value={subGroup}
                     label="Tipo"
-                    onChange={handleSubGroupChange}
+                    onChange={ handleSubGroupChange }
                     disabled={!group}
                 >
                     {subGroups[group]?.map((sub) => (
@@ -105,7 +117,7 @@ const Denuncia = () => {
                     id="regiao-select"
                     value={regiao}
                     label="Região"
-                    onChange={handleRegiaoChange}
+                    onChange={ handleRegiaoChange }
                 >
                     {regioes.map((regiao, index) => (
                         <MenuItem key={index} value={regiao}>
@@ -116,7 +128,10 @@ const Denuncia = () => {
             </FormControl>
 
             <div style={{ display: 'flex', justifyContent: 'space-evenly', margin: '16px 0px' }}>
-                <Button variant="contained" sx={{ width: '120px', backgroundColor: '#1a7235' }}>Enviar</Button>
+                <Button 
+                variant="contained" 
+                onClick={submitForm}
+                sx={{ width: '120px', backgroundColor: '#1a7235' }}>Enviar</Button>
             </div>
         </div>
     );

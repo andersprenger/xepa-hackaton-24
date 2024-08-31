@@ -5,11 +5,11 @@ const getDenuncias = (req, res) => {
 
 }
 const postDenunciaController = (req, res) => {
-    const { description, local, title } = req.body;
+    const { group, zone } = req.body;
+    console.log("teste", group, zone);
     postDenuncia({
-        description,
-        local,
-        title
+        zone,
+        group,
     });
     return res.status(201).send();
 }
