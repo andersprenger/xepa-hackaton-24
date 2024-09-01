@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Alert, AlertTitle } from '@mui/material';
+import { Alert, AlertTitle, Typography } from '@mui/material';
 
 const Alerts = ({ currentRegion, alert, setAlert }) => {
 
@@ -47,6 +47,7 @@ const Alerts = ({ currentRegion, alert, setAlert }) => {
                     <AlertTitle>{`${alert.titulo} - ${alert.data_hora}`}</AlertTitle>
                     {alert.mensagem}
                 </Alert>
+                <Typography fontSize={24} color='#c90000' sx={{ fontWeight: 700, textAlign: 'start', width: '100%' }}>Atenção à sua rota de fuga!</Typography>
                 <iframe title='rota' width="100%" style={{ border: 0, aspectRatio: '4/3' }} loading="lazy" allowfullscreen src={alert.rota}></iframe>
             </div>
         ) : (

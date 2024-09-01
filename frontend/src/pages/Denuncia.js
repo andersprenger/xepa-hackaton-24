@@ -1,15 +1,26 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
 import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
 import Button from '@mui/material/Button';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import Dialog from '@mui/material/Dialog';
+import DialogTitle from '@mui/material/DialogTitle';
+import { DialogContent } from '@mui/material';
 
 const Denuncia = ({ setIsMain }) => {
     const [group, setGroup] = React.useState('');
     const [subGroup, setSubGroup] = React.useState('');
     const [regiao, setRegiao] = React.useState('');
+    const [isDisable, setDisable] = React.useState(true);
+    const [dlog, setDlog] = React.useState(false);
+
+    useEffect(() => {
+        if (group != "" && subGroup != "" && regiao != "") {
+            setDisable(false);
+        }
+    }, [group, subGroup, regiao])
 
 
     const handleGroupChange = (event) => {
@@ -34,7 +45,10 @@ const Denuncia = ({ setIsMain }) => {
                 zone: regiao,
             })
         })
-        setIsMain(true);
+        setDlog(true);
+        setTimeout(() => {
+            setIsMain(true);
+        }, 5000);
     }
     const subGroups = {
         naturais: [
@@ -72,7 +86,7 @@ const Denuncia = ({ setIsMain }) => {
         <div style={{ width: '90%', maxWidth: '500px', padding: '0px 0px' }}>
             <div style={{ textAlign: 'left', paddingLeft: '0px', paddingBottom: '0px', paddingTop: '16px' }}>
                 <h2 style={{ color: '#1a7235', textAlign: 'left', margin: '0', padding: '0' }}>Notificar Emergência</h2>
-                <Button onClick={()=>setIsMain(true)} sx={{ color: '#1a7235', textAlign: 'left', padding: '0px', margin: '0', padding: '0' }} startIcon={<ArrowBackIcon />}>Voltar</Button>
+                <Button onClick={() => setIsMain(true)} sx={{ color: '#1a7235', textAlign: 'left', padding: '0px', margin: '0', padding: '0' }} startIcon={<ArrowBackIcon />}>Voltar</Button>
             </div>
 
             <h3 style={{ color: '#1a7235', textAlign: 'left' }}>Grupo de desastre</h3>
@@ -130,8 +144,20 @@ const Denuncia = ({ setIsMain }) => {
             <div style={{ display: 'flex', justifyContent: 'space-evenly', margin: '16px 0px' }}>
                 <Button
                     variant="contained"
+                    disabled={isDisable}
                     onClick={submitForm}
                     sx={{ width: '120px', backgroundColor: '#1a7235' }}>Enviar</Button>
+                <Dialog
+                    open={dlog}>
+                    <DialogTitle
+                    >
+                        Agradecemos a sua informação.
+                    </DialogTitle>
+                    <DialogContent>
+                        Busque os recursos de ajuda mais proximos de você.
+                    </DialogContent>
+
+                </Dialog>
             </div>
         </div>
     );

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Alerts from '../components/Alerts';
 import Button from '@mui/material/Button';
-import { Typography } from '@mui/material';
+import { Typography, DialogContent, Dialog, DialogTitle } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
 const NotificationButton = styled(Button)({
@@ -25,7 +25,18 @@ const CheckinButton = styled(Button)({
 });
 
 const Main = ({ currentRegion, setIsMain }) => {
-
+    const [isDisabled, setDisabled] = React.useState(false);
+    const [dlog, setDlog] = React.useState(false);
+    const checkinHandle = () => {
+        setDlog(true);
+        setDisabled(true);
+        fetch(`http://localhost:3001/checkin/${currentRegion}`, {
+            method: "POST"
+        })
+        setTimeout(() => {
+            setDlog(false);
+        }, 5000);
+    }
     const [alert, setAlert] = useState({
         id: '',
         titulo: '',
@@ -55,10 +66,19 @@ const Main = ({ currentRegion, setIsMain }) => {
             <div style={{ width: '100%', height: '5px', backgroundColor: '#1a7235' }} />
             {alert.mensagem !== '' && <div style={{ width: '90%' }}>
                 <Typography fontSize={24} color='#1a7235' sx={{ fontWeight: 700, textAlign: 'start' }}>Chegou no ponto de encontro?</Typography>
-                <CheckinButton onClick={() => console.log('Acesse Rotas de Fuga')}>
+                <CheckinButton disabled={isDisabled} onClick={checkinHandle}>
                     Faça aqui o Check-in!
                 </CheckinButton>
             </div>}
+            <Dialog
+                open={dlog}>
+                <DialogTitle>
+                    Obrigado por executar o check-in!
+                </DialogTitle>
+                <DialogContent>
+                    Busque os recursos necessário e ajude também caso for possível!
+                </DialogContent>
+            </Dialog>
         </div>
     );
 };
